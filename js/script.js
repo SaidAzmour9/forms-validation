@@ -6,14 +6,23 @@ const password2 = document.getElementById('password2');
 const errorElement = document.getElementById('error');
 
 form.addEventListener('submit', (e) => {
+    e.preventDefault();
     if(email.value === '') {
         email.style.borderColor = '#F91F1F'
         }
         if(password.value === '') {
             password.style.borderColor = '#F91F1F';
             }
-        e.preventDefault();
-        errorElement.innerHTML = 'Recover Password';
+            if(password2.value === '') {
+                password2.style.borderColor = '#F91F1F';
+                }
+                if(password.value !== password2.value) {
+                    password2.style.borderColor = '#F91F1F';
+                    }
+                    if(username.value === '') {
+                        username.style.borderColor = '#F91F1F';
+                    }
+    errorElement.innerHTML = 'All fields required';
 });
 
 
